@@ -1,4 +1,5 @@
-import express from "express";
+
+import express, { Application, Request, Response } from "express";
 import routerProducts from "../routers/product";
 import routeUser from "../routers/user";
 import { Product } from "./product";
@@ -6,7 +7,7 @@ import { User } from "./user";
 import cors from "cors";
 
 export class Server {
-    private app: express.Application;
+    private app: Application;
     private port: string;
 
     constructor() {
@@ -15,6 +16,7 @@ export class Server {
         this.listen();
         this.midlewares();
         this.routes();
+        this.crud();
         this.dbConnect();
     }
 
@@ -25,8 +27,16 @@ export class Server {
     }
 
     routes() {
-        this.app.use("/api/products", routerProducts);
         this.app.use("/api/users", routeUser);
+    }
+
+    crud() {
+        this.app.get("/", (req: Request, res: Response) => {
+            res.json({
+                msg: "API working"
+            })
+        })
+        this.app.use("/api/products", routerProducts);
     }
 
     midlewares(){

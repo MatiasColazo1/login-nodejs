@@ -26,6 +26,7 @@ class Server {
         this.listen();
         this.midlewares();
         this.routes();
+        this.crud();
         this.dbConnect();
     }
     listen() {
@@ -34,8 +35,15 @@ class Server {
         });
     }
     routes() {
-        this.app.use("/api/products", product_1.default);
         this.app.use("/api/users", user_1.default);
+    }
+    crud() {
+        this.app.get("/", (req, res) => {
+            res.json({
+                msg: "API working"
+            });
+        });
+        this.app.use("/api/products", product_1.default);
     }
     midlewares() {
         // Parseo body
