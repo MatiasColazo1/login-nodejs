@@ -6,6 +6,7 @@ import { Product } from "./product";
 import { User } from "./user";
 import cors from "cors";
 
+
 export class Server {
     private app: Application;
     private port: string;

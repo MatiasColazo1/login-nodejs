@@ -12,5 +12,16 @@ export const Product = sequelize.define("product", {
     },
     description: {
         type: DataTypes.STRING
+    },
+    price: {
+        type: DataTypes.DOUBLE
+    },
+    stock: {
+        type: DataTypes.INTEGER
     }
+}, {
+    createdAt: false,
+    updatedAt: false
 })
+
+export default Product;

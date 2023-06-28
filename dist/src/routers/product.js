@@ -11,4 +11,5 @@ router.get("/", validate_token_1.default, product_controller_1.getProduct);
 router.get("/:id", product_controller_1.getProducto);
 router.delete("/:id", product_controller_1.deleteProducto);
 router.post("/", product_controller_1.postProducto);
+router.put("/:id", product_controller_1.putProducto);
 exports.default = router;
