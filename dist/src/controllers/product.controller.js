@@ -47,7 +47,6 @@ const deleteProducto = (req, res) => __awaiter(void 0, void 0, void 0, function*
 exports.deleteProducto = deleteProducto;
 const postProducto = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { body } = req;
-    yield product_1.Product.create(body);
     try {
         yield product_1.Product.create(body);
         res.json({

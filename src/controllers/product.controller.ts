@@ -39,8 +39,7 @@ export const deleteProducto = async (req: Request, res: Response) => {
 
 export const postProducto = async (req: Request, res: Response) => {
     const { body } = req;
-    await Product.create(body);
-
+ 
     try {
         await Product.create(body);
         res.json({
